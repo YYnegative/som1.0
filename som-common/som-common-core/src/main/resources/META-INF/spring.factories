@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.ebig.som.common.core.config.JacksonConfig,\
+  com.ebig.som.common.core.config.RedisTemplateConfig,\
+  com.ebig.som.common.core.config.RestTemplateConfig,\
+  com.ebig.som.common.core.config.FilterIgnorePropertiesConfig,\
+  com.ebig.som.common.core.exception.GlobalExceptionHandler,\
+  com.ebig.som.common.core.util.SpringContextHolder,\
+  com.ebig.som.common.core.mybatis.WebMvcConfig

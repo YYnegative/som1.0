@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ebig.som</groupId>
+		<artifactId>som</artifactId>
+		<version>1.0</version>
+	</parent>
+	<artifactId>som-tool</artifactId>
+	<packaging>pom</packaging>
+	<name>som-tool</name>
+	<description>工具聚合模块</description>
+
+	<modules>
+		<module>som-tool-eureka</module>
+		<module>som-tool-config</module>
+		<module>som-tool-gateway</module>
+        <module>som-tool-monitor</module>
+    <module>som-tool-zipkin</module>
+    <module>som-tool-generator</module>
+  </modules>
+</project>

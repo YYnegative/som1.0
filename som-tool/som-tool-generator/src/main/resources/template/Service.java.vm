@@ -1,0 +1,19 @@
+package ${package}.${moduleName}.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import ${package}.${moduleName}.entity.${className};
+
+/**
+ * 类功能说明：${comments}接口 <br/>
+ * 类修改者：<br/>
+ * 修改日期：<br/>
+ * 修改说明：<br/>
+ * 公司名称：广东以大供应链管理有限公司 <br/>
+ * 作者：${author}
+ * 邮箱：${email}
+ * 创建时间：${datetime}
+ * 版本：V1.0 <br/>
+ */
+public interface ${className}Service extends IService<${className}> {
+
+}

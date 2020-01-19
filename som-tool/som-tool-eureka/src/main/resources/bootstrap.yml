@@ -1,0 +1,35 @@
+server:
+  port: 8761
+
+spring:
+  security:
+    user:
+      name: som
+      password: som
+  application:
+    name: som-tool-eureka
+  cloud:
+    config:
+      enabled: false
+
+# docker-compose部署时候 hostname 换成pig-eureka
+# 类似的 redis 使用pig-redis ,gateway 换成 pig-gateway
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    eviction-interval-timer-in-ms: 4000
+    enable-self-preservation: false
+    renewal-percent-threshold: 0.9
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

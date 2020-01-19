@@ -1,0 +1,22 @@
+security:
+  oauth2:
+    client:
+      client-id: ENC(cjqSmTWVPrzycCtS9var/w==)
+      client-secret: ENC(OR/j7l1xH0JLWimc9C3nvA==)
+      scope: server
+
+# 数据源
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hscm
+    password: hscm
+    url: jdbc:mysql://192.168.1.12:3521/som-dev?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+
+# 直接放行URL
+ignore:
+  urls:
+    - /actuator/**
+    - /user/info/*
+    - /log/**

@@ -1,0 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.ebig.som.server.upms.api.feign.fallback.RemoteUserServiceFallbackImpl,\
+  com.ebig.som.server.upms.api.feign.fallback.RemoteLogServiceFallbackImpl,\
+  com.ebig.som.server.upms.api.feign.fallback.RemoteTokenServiceFallbackImpl,\
+  com.ebig.som.server.upms.api.feign.factory.RemoteUserServiceFallbackFactory,\
+  com.ebig.som.server.upms.api.feign.factory.RemoteLogServiceFallbackFactory,\
+  com.ebig.som.server.upms.api.feign.factory.RemoteTokenServiceFallbackFactory

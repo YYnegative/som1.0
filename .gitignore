@@ -1,0 +1,25 @@
+# Project exclude paths
+/som-common/som-common-core/target/
+/som-common/som-common-log/target/
+/som-common/som-common-security/target/
+/som-server/som-server-authorize/target/
+/som-server/som-server-upms-api/target/
+/som-server/som-server-upms-biz/target/
+/som-tool/som-tool-config/target/
+/som-tool/som-tool-eureka/target/
+/som-tool/som-tool-gateway/target/
+/som-tool/som-tool-generator/target/
+/som-tool/som-tool-monitor/target/
+/som-tool/som-tool-zipkin/target/
+*.iml
+*.ipr
+*.iws
+.idea/
+*.log
+*.log.zip
+*.log.*.gz
+target/
+.DS_Store
+package-lock.json
+node_modules/
+*.versionsBackup

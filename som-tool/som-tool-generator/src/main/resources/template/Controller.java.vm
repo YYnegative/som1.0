@@ -1,0 +1,90 @@
+package ${package}.${moduleName}.controller;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ebig.som.common.base.util.R;
+import com.ebig.som.common.log.annotation.SysLog;
+import ${package}.${moduleName}.entity.${className};
+import ${package}.${moduleName}.service.${className}Service;
+import org.springframework.security.access.prepost.PreAuthorize;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+/**
+ * 类功能说明：${comments}管理 <br/>
+ * 类修改者：<br/>
+ * 修改日期：<br/>
+ * 修改说明：<br/>
+ * 公司名称：广东以大供应链管理有限公司 <br/>
+ * 作者：${author}
+ * 邮箱：${email}
+ * 创建时间：${datetime}
+ * 版本：V1.0 <br/>
+ */
+@RestController
+@AllArgsConstructor
+@RequestMapping("/${pathName}")
+public class ${className}Controller {
+
+    private final  ${className}Service ${classname}Service;
+
+	/**
+	 * 分页查询
+	 * @param page 分页对象
+	 * @param ${classname} ${comments}
+	 * @return
+	 */
+	@GetMapping("/page" )
+	public R get${className}Page(Page page, ${className} ${classname}) {
+	    return R.ok(${classname}Service.page(page, Wrappers.query(${classname})));
+	}
+
+
+	/**
+	 * 通过id查询${comments}
+	 * @param ${pk.lowerAttrName} id
+	 * @return R
+	 */
+	@GetMapping("/{${pk.lowerAttrName}}" )
+	public R getById(@PathVariable("${pk.lowerAttrName}" ) ${pk.attrType} ${pk.lowerAttrName}) {
+	    return R.ok(${classname}Service.getById(${pk.lowerAttrName}));
+	}
+
+	/**
+	 * 新增${comments}
+	 * @param ${classname} ${comments}
+	 * @return R
+	 */
+	@SysLog("新增${comments}" )
+	@PostMapping
+	@PreAuthorize("@pms.hasPermission('${moduleName}_${pathName}_add')" )
+	public R save(@RequestBody ${className} ${classname}) {
+	    return R.ok(${classname}Service.save(${classname}));
+	}
+
+	/**
+	 * 修改${comments}
+	 * @param ${classname} ${comments}
+	 * @return R
+	 */
+	@SysLog("修改${comments}" )
+	@PutMapping
+	@PreAuthorize("@pms.hasPermission('${moduleName}_${pathName}_edit')" )
+	public R updateById(@RequestBody ${className} ${classname}) {
+	    return R.ok(${classname}Service.updateById(${classname}));
+	}
+
+	/**
+	 * 通过id删除${comments}
+	 * @param ${pk.lowerAttrName} id
+	 * @return R
+	 */
+	@SysLog("通过id删除${comments}" )
+	@DeleteMapping("/{${pk.lowerAttrName}}" )
+	@PreAuthorize("@pms.hasPermission('${moduleName}_${pathName}_del')" )
+	public R removeById(@PathVariable ${pk.attrType} ${pk.lowerAttrName}) {
+	    return R.ok(${classname}Service.removeById(${pk.lowerAttrName}));
+	}
+
+}

@@ -1,0 +1,50 @@
+spring:
+  cloud:
+    gateway:
+      locator:
+        enabled: true
+      routes:
+        # 认证中心
+        - id: som-server-authorize
+          uri: lb://som-server-authorize
+          predicates:
+            - Path=/auth/**
+          filters:
+            # 验证码处理
+            - ValidateCodeGatewayFilter
+            # 前端密码解密
+            - PasswordDecoderFilter
+        #UPMS 模块
+        - id: som-server-upms
+          uri: lb://som-server-upms
+          predicates:
+            - Path=/admin/**
+          filters:
+            # 限流配置
+            - name: RequestRateLimiter
+              args:
+                key-resolver: '#{@remoteAddrKeyResolver}'
+                redis-rate-limiter.replenishRate: 10
+                redis-rate-limiter.burstCapacity: 20
+              # 降级配置
+            - name: Hystrix
+              args:
+                name: default
+                fallbackUri: 'forward:/fallback'
+        # 代码生成模块
+        - id: som-tool-generator
+          uri: lb://som-tool-generator
+          predicates:
+            - Path=/gen/**
+
+
+security:
+  encode:
+    # 前端密码密钥，必须16位
+    key: 'com.ebig.vip.som'
+    
+
+# 不校验验证码终端
+ignore:
+  clients:
+    - test
